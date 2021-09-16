@@ -1,5 +1,6 @@
 package it.apulia.esercitazione1;
 
+
 import lombok.Data;
 
 /*fornendo un insieme di dati quali nome, cognome, indirizzo email,
