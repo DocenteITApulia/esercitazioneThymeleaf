@@ -11,35 +11,60 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.print.attribute.standard.PresentationDirection;
 import javax.validation.Valid;
 import java.util.Date;
 
 
 @Controller
 public class HomeController {
-	
+
 	private final UserService userService;
-	
+
 	@Autowired
-    public HomeController(UserService userService) {
-        this.userService = userService;
-    }
-		@GetMapping("/")
-	  public String index() {
-	    return "index";
-	  }
-	
+	public HomeController(UserService userService) {
+		this.userService = userService;
+	}
+
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
+
 	@GetMapping("/orario")
-	  public String home( Model m) {
-	    m.addAttribute("now", new Date() );
-	    return "orario";
-	  }
-	
+	public String home(Model m) {
+		m.addAttribute("now", new Date());
+		return "orario";
+	}
+
 	@GetMapping("/register")
-	  public String register(Model model) {
-		model.addAttribute( "formutente", new UtenteDTO());
-	    return "register";
-	  }
+	public String register(Model model) {
+		model.addAttribute("formutente", new UtenteDTO());
+		return "register";
+	}
+
+
+	@GetMapping("/login")
+	public String log(Model model) {
+		model.addAttribute("formLogin", new LoginDTO());
+		return "login";
+	}
+
+
+	@PostMapping("/login")
+	public String loginPost(
+			@ModelAttribute("formLogin") LoginDTO formLogin,
+			// WARN: BindingResult *must* immediately follow the Command.
+			// https://stackoverflow.com/a/29883178/1626026
+			BindingResult bindingResult,
+			Model model,
+			RedirectAttributes ra) {
+		if (this.userService.verificaPassword(formLogin)) {
+			return "redirect:/loginSuccess";
+		}
+
+	}
+
 		
 	@PostMapping("/register")
 	public String foobarPost(
@@ -51,13 +76,17 @@ public class HomeController {
 			RedirectAttributes ra ) {
 		
 		System.out.println("Ho eseguito la post, il nome passato è "+ formutente.nome);
-		if ( bindingResult.hasErrors() ) {
+		if ( bindingResult.hasErrors() || this.userService.verifyEmail(formutente.getEmail()) ) {
+			if(bindingResult.hasErrors()){
+
 			for (ObjectError temp :bindingResult.getAllErrors()){
 				System.out.println("Errore trovato: nome "+ temp.getObjectName() + temp.getObjectName()+
 						";codice "+ temp.getCode()+"; messaggio "+ temp.getDefaultMessage());
-			}
+			}}
 			return "register";
 		}
+
+		this.userService.saveUser(formutente);
 
 		ra.addFlashAttribute("formutente", formutente);
 		
