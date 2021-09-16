@@ -14,13 +14,13 @@ public class Esercitazione1Application {
     public static void main(String[] args) {
         SpringApplication.run(Esercitazione1Application.class, args);
     }
-
+    /* //queste istruzioni servono per stampare i bean correntemente in uso da spring
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
             System.out.println("Ecco l'elenco dei bean in esecuzione: ");
 
-            /*queste istruzioni servono per stampare i bean correntemente in uso da spring*/
+
             String[] nomiBean = ctx.getBeanDefinitionNames();
             Arrays.sort(nomiBean);
             for(String nomeBean: nomiBean) {
@@ -28,5 +28,5 @@ public class Esercitazione1Application {
             }
         };
     }
-// Questo è un commento
+    */
 }

@@ -32,13 +32,13 @@ public class HomeController {
 	    return "orario";
 	  }
 	
-	@GetMapping("/userForm")
-	  public String userForm(Model model) {
+	@GetMapping("/register")
+	  public String register(Model model) {
 		model.addAttribute( "formutente", new UtenteDTO());
-	    return "userForm";
+	    return "register";
 	  }
 		
-	@PostMapping("/userForm")
+	@PostMapping("/register")
 	public String foobarPost(
 			@ModelAttribute("formutente") UtenteDTO formutente,
 			// WARN: BindingResult *must* immediately follow the Command.
@@ -49,7 +49,7 @@ public class HomeController {
 		
 		System.out.println("Ho eseguito la post, il nome passato è "+ formutente.nome);
 		if ( bindingResult.hasErrors() ) {
-			return "userForm";
+			return "register";
 		}
 
 		ra.addFlashAttribute("formutente", formutente);
