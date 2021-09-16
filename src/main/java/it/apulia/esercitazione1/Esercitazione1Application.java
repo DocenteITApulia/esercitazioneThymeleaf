@@ -20,7 +20,7 @@ public class Esercitazione1Application {
         return args -> {
             System.out.println("Ecco l'elenco dei bean in esecuzione: ");
 
-            /*queste istruzioni servono per stampare i bean correntemente in uso da spring*/
+            /*queste istruzioni servono per stampare i bean correntemente in uso da spring */
             String[] nomiBean = ctx.getBeanDefinitionNames();
             Arrays.sort(nomiBean);
             for(String nomeBean: nomiBean) {
