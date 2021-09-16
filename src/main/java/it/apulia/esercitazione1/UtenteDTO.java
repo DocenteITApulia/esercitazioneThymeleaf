@@ -10,11 +10,11 @@ import javax.validation.constraints.Size;
 @Data
 public class UtenteDTO {
 
-	@Size(min = 10, max = 200, message
-			= "About Me must be between 10 and 200 characters")
+	@Size(min = 3, max = 200, message
+			= "About Me must be between 3 and 200 characters")
 	String nome;
-	@Size(min = 10, max = 200, message
-			= "About Me must be between 10 and 200 characters")
+	@Size(min = 3, max = 200, message
+			= "About Me must be between 3 and 200 characters")
 	String cognome;
 	@Email(message = "Email should be valid")
 	String email;

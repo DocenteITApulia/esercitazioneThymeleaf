@@ -7,21 +7,19 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
-//TODO aggiungere collezione per il salvataggio e verifica dei dati utente in locale
-//TODO se va a buon fine la registrazione far comparire all'utente il relativo messaggio di successo
-//TODO creare pagina di Login, la quale reindirizza su una pagina che segnala il successo o meno dell'operazione
+
 @SpringBootApplication
 public class Esercitazione1Application {
 
     public static void main(String[] args) {
         SpringApplication.run(Esercitazione1Application.class, args);
     }
-    /* //queste istruzioni servono per stampare i bean correntemente in uso da spring
-    @Bean
+     //queste istruzioni servono per stampare i bean correntemente in uso da spring
+ /*    @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
-        return args -> {
-            System.out.println("Ecco l'elenco dei bean in esecuzione: ");
+       return args -> {
 
+            System.out.println("Ecco l'elenco dei bean in esecuzione: ");
 
             String[] nomiBean = ctx.getBeanDefinitionNames();
             Arrays.sort(nomiBean);
@@ -29,6 +27,5 @@ public class Esercitazione1Application {
                 System.out.println(nomeBean);
             }
         };
-    }
-    */
+    }*/
 }
