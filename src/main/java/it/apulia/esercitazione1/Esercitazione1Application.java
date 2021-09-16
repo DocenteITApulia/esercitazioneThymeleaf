@@ -14,7 +14,7 @@ public class Esercitazione1Application {
     public static void main(String[] args) {
         SpringApplication.run(Esercitazione1Application.class, args);
     }
-
+    //test
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
