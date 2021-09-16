@@ -6,15 +6,18 @@ import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 
-
+/*fornendo un insieme di dati quali nome, cognome, indirizzo email,
+password prescelta (inserita due volte per verifica) e consenso di accettazione delle
+norme sulla privacy. 
+*/
 @Data
 public class UtenteDTO {
 
-	@Size(min = 10, max = 200, message
-			= "About Me must be between 10 and 200 characters")
+	@Size(min = 18, max = 200, message
+			= "About Me must be between 18 and 200 characters")
 	String nome;
-	@Size(min = 10, max = 200, message
-			= "About Me must be between 10 and 200 characters")
+	@Size(min = 18, max = 200, message
+			= "About Me must be between 18 and 200 characters")
 	String cognome;
 	@Email(message = "Email should be valid")
 	String email;
@@ -24,5 +27,4 @@ public class UtenteDTO {
 	String vpassword;
 	@AssertTrue
 	boolean privacy = false;
-
 }

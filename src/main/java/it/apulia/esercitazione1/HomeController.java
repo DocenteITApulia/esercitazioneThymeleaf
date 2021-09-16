@@ -1,5 +1,6 @@
 package it.apulia.esercitazione1;
 
+import ch.qos.logback.core.net.SyslogOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -51,9 +52,9 @@ public class HomeController {
 		
 		System.out.println("Ho eseguito la post, il nome passato è "+ formutente.nome);
 		if ( bindingResult.hasErrors() ) {
-			for(ObjectError temp :bindingResult.getAllErrors()){
-				System.out.println("Errore trovato: nome "+temp.getObjectName()+
-						";codice "+temp.getCode()+"; messaggio "+temp.getDefaultMessage());
+			for (ObjectError temp :bindingResult.getAllErrors()){
+				System.out.println("Errore trovato: nome "+ temp.getObjectName() + temp.getObjectName()+
+						";codice "+ temp.getCode()+"; messaggio "+ temp.getDefaultMessage());
 			}
 			return "register";
 		}

@@ -6,28 +6,28 @@ import java.util.HashMap;
 
 @Service
 public class UserService {
-	HashMap<String, UtenteDTO> similDB;
+	HashMap<String, UtenteDTO>similDB;
 
 	public UserService() {
-		this.similDB = new HashMap<String,UtenteDTO>();
+		this.similDB = new HashMap<String, UtenteDTO>();
 	}
-
 	public boolean verifyEmail(String email) {
 		return this.similDB.containsKey(email);
 	}
 
-	public boolean verifyPasswordUtente(UtenteDTO utente) {
-		if(this.verifyEmail(utente.getEmail()))
-		{
-			//l'utente esiste
-			if(this.similDB.get(utente.getEmail()).getPassword().equals(utente.getPassword()))
-			{
-				//login corretto
+	public boolean verifyPassword(UtenteDTO utente) {
+		//controllo ceh l'utente sia presente all'interno dell'hashmap
+		if(this.verifyEmail(utente.getEmail())){
+			//verifica che le password siano uguali
+			if(this.similDB.get(utente.getEmail()).equals(utente.getPassword())) {
+				//login corrente
 			}
 			return false; //password errata
 		}
-		return false;
+		return false; //L'utente non è presente all'interno del sistema
 	}
+
+
 
 
 	public boolean verificaPassword(String psw, String vpsw) {
