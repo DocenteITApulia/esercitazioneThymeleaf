@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Dati restituiti dal form</title>
+</head>
+<body>
+	<h1>Elenco dei campi</h1>
+	<p th:text= "'Nome Inserito: ' + ${formutente.nome}" />
+	<p th:text= "'Cognome inserito: ' + ${formutente.cognome}" />
+	<p th:text= "'Email inserita: ' + ${formutente.email}" />
+	<p th:text= "'password inserita: ' + ${formutente.password}" />
+	<p th:text= "'verifica password inserita: ' + ${formutente.vpassword}" />
+	<p th:text= "'Single Checkbox Value: ' + ${formutente.privacy}" />
+	
+	<a href="/userForm">reinvia form</a>
+    
+</body>
+</html>
