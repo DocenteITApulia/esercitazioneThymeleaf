@@ -24,7 +24,7 @@ public class Esercitazione1Application {
             String[] nomiBean = ctx.getBeanDefinitionNames();
             Arrays.sort(nomiBean);
             for(String nomeBean: nomiBean) {
-                System.out.println(nomeBean);
+                System.out.println(nomeBean) ;
             }
         };
     }
