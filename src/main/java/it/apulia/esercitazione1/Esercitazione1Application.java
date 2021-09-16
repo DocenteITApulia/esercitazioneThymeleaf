@@ -7,7 +7,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
-
+//TODO aggiungere collezione per il salvataggio e verifica dei dati utente in locale
+//TODO se va a buon fine la registrazione far comparire all'utente il relativo messaggio di successo
+//TODO creare pagina di Login, la quale reindirizza su una pagina che segnala il successo o meno dell'operazione
 @SpringBootApplication
 public class Esercitazione1Application {
 
