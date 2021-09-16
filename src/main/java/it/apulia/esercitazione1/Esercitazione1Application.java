@@ -7,7 +7,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
-//12234
+//122344
 @SpringBootApplication
 public class Esercitazione1Application {
 
