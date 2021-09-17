@@ -62,7 +62,7 @@ public class HomeController {
 	@GetMapping("/register")
 	  public String register(Model model) {
 		model.addAttribute( "formutente", new UtenteDTO());
-	    return "register";
+	    return "register ";
 	  }
 		
 	@PostMapping("/register")
